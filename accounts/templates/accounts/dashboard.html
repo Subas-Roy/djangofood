@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div role="main" class="main">
+
+	<div class="container pt-3 pb-2">
+
+		<div class="row pt-2">
+			<div class="col-lg-3 mt-4 mt-lg-0">
+
+				<div class="d-flex justify-content-center mb-4">
+					<div class="profile-image-outer-container">
+						<div class="profile-image-inner-container bg-color-primary">
+							{% if userprofile.profile_picture %}
+							<img src="{{userprofile.profile_picture.url}}">
+							{% endif %}
+							<!-- <span class="profile-image-button bg-color-dark">
+								<i class="fas fa-camera text-light"></i>
+							</span> -->
+						</div>
+						<input type="file" id="file" class="form-control profile-image-input">
+					</div>
+				</div>
+				{% include 'accounts/dashboard_sidebar.html' %}
+			</div>
+			<div class="col-lg-9">
+				<div class="card" style="text-align:center;">
+					<div class="card-body">
+						<h3>{{user.full_name}}</h3>
+						<p class="mb-0">{{user.email}}</p>
+						<p>{{user.phone_number}}</p>
+					</div>
+				</div>
+				<div class="card" style="text-align:center;">
+					<div class="card-body">
+						<h5 class="card-title">Total Orders</h5>
+						<h4>{{orders_count}}</h4>
+						<a href="{% url 'my_orders' %}">View Orders</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</div>
+
+{% endblock %}

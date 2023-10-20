@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div role="main" class="main">
+
+	<div class="container pt-3 pb-2">
+		{% include 'includes/alerts.html' %}
+
+		<div class="row pt-2">
+			<div class="col-lg-3 mt-4 mt-lg-0">
+				{% include 'accounts/dashboard_sidebar.html' %}
+			</div>
+			<div class="col-lg-9">
+				<form action="{% url 'edit_profile' %}" method="post" enctype="multipart/form-data" role="form" class="needs-validation">
+					{% csrf_token %}
+					<div class="form-group row">
+						<label class="col-lg-3 col-form-label form-control-label line-height-9 pt-2 text-2 required">First name</label>
+						<div class="col-lg-9">
+							{{user_form.first_name}}
+						</div>
+					</div>
+					<div class="form-group row">
+						<label class="col-lg-3 col-form-label form-control-label line-height-9 pt-2 text-2 required">Last name</label>
+						<div class="col-lg-9">
+							{{user_form.last_name}}
+						</div>
+					</div>
+					<div class="form-group row">
+						<label class="col-lg-3 col-form-label form-control-label line-height-9 pt-2 text-2 required">Phone number</label>
+						<div class="col-lg-9">
+							{{user_form.phone_number}}
+						</div>
+					</div>
+					<div class="form-group row">
+						<label class="col-lg-3 col-form-label form-control-label line-height-9 pt-2 text-2">Profile picture</label>
+						<div class="col-lg-9">
+							{{profile_form.profile_picture}}
+						</div>
+					</div>
+					<div class="form-group row">
+						<label class="col-lg-3 col-form-label form-control-label line-height-9 pt-2 text-2">Address line 1</label>
+						<div class="col-lg-9">
+							{{profile_form.address_line_1}}
+						</div>
+					</div>
+					<div class="form-group row">
+						<label class="col-lg-3 col-form-label form-control-label line-height-9 pt-2 text-2">Address line 2</label>
+						<div class="col-lg-9">
+							{{profile_form.address_line_2}}
+						</div>
+					</div>
+					<div class="form-group row">
+						<label class="col-lg-3 col-form-label form-control-label line-height-9 pt-2 text-2"></label>
+						<div class="col-lg-3">
+							<label>City</label>
+							{{profile_form.city}}
+						</div>
+						<div class="col-lg-3">
+							<label>State</label>
+							{{profile_form.state}}
+						</div>
+						<div class="col-lg-3">
+							<label>Country</label>
+							{{profile_form.country}}
+						</div>
+					</div>
+					<!-- <div class="form-group row">
+						<label class="col-lg-3 col-form-label form-control-label line-height-9 pt-2 text-2">Time Zone</label>
+						<div class="col-lg-9">
+							<div class="custom-select-1">
+								<select id="user_time_zone" class="form-control text-3 h-auto py-2" name="timeZone" size="0">
+									<option value="Hawaii">(GMT-10:00) Hawaii</option>
+									<option value="Alaska">(GMT-09:00) Alaska</option>
+									<option value="Pacific Time (US &amp; Canada)">(GMT-08:00) Pacific Time (US &amp; Canada)</option>
+									<option value="Arizona">(GMT-07:00) Arizona</option>
+									<option value="Mountain Time (US &amp; Canada)">(GMT-07:00) Mountain Time (US &amp; Canada)</option>
+									<option value="Central Time (US &amp; Canada)" selected="selected">(GMT-06:00) Central Time (US &amp; Canada)</option>
+									<option value="Eastern Time (US &amp; Canada)">(GMT-05:00) Eastern Time (US &amp; Canada)</option>
+									<option value="Indiana (East)">(GMT-05:00) Indiana (East)</option>
+								</select>
+							</div>
+						</div>
+					</div> -->
+					<div class="form-group row">
+						<div class="form-group col-lg-9">
+
+						</div>
+						<div class="form-group col-lg-3">
+							<input type="submit" value="Save" class="btn btn-primary btn-modern float-end" data-loading-text="Loading...">
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+
+	</div>
+
+</div>
+
+{% endblock %}
